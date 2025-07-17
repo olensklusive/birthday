@@ -1,0 +1,108 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #fcb0c5);
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.text {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    max-width: 90%;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    padding: 15px;
+    border-radius: 15px;
+    animation: fadeInUp 1.5s ease forwards;
+    opacity: 0;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    line-height: 1.4;
+}
+
+@keyframes fadeInUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+#next {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff82ac;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    -webkit-tap-highlight-color: transparent;
+}
+
+#next:hover, #next:active {
+    background: #ff5d8d;
+    transform: scale(0.98);
+}
+
+
+@media (max-width: 480px) {
+    .text {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+    #next {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        height: -webkit-fill-available;
+    }
+    .slide {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Для вертикальных фото на мобильных устройствах */
+@media (max-width: 768px) and (orientation: portrait) {
+    .slide.custom-photo {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: rgba(0,0,0,0.5); /* Фон для незаполненных областей */
+    }
+}
+
