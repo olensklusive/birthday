@@ -75,6 +75,16 @@ body, html {
 }
 
 
+.slide:last-child .text {
+    position: absolute;
+    bottom: 20%;
+    width: 90%;
+}
+
+.slide:last-child .text {
+    animation-delay: 0.5s;
+}
+
 @media (max-width: 480px) {
     .text {
         padding: 12px;
