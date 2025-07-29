@@ -131,3 +131,26 @@ body, html {
     bottom: 10%;
     position: absolute;
 }
+
+
+/* Стили для портретных фото */
+.slide.portrait {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fcb0c5; /* Фон вокруг фото */
+}
+
+.slide.portrait .text {
+    position: absolute;
+    bottom: 15%;
+    width: 90%;
+    left: 5%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    border-radius: 15px;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Остальные существующие стили остаются без изменений */
