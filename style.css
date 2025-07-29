@@ -116,3 +116,18 @@ body, html {
     }
 }
 
+/* Адаптация вертикальных фото */
+.slide[style*="photo2"],
+.slide[style*="photo3"],
+.slide[style*="photo4"] {
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
+}
+
+/* Увеличим текст на фото с людьми */
+.slide[style*="photo"] .text {
+    font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+    max-width: 85%;
+    bottom: 10%;
+    position: absolute;
+}
