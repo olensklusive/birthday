@@ -116,3 +116,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Запуск анимации
     draw();
 });
+
+// Предзагрузка ваших фото
+function preloadImages() {
+    const images = [
+        'our_photo.webp',
+        'photo2.webp',
+        'photo3.webp',
+        'photo4.webp'
+    ];
+    
+    images.forEach(img => {
+        new Image().src = img;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', preloadImages);
