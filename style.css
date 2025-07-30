@@ -132,25 +132,71 @@ body, html {
     position: absolute;
 }
 
+/* Общие стили для всех слайдов */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1s ease;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-/* Стили для портретных фото */
+.slide.active {
+    opacity: 1;
+}
+
+/* Стили для текста (общие) */
+.text {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    max-width: 90%;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 20px;
+    animation: fadeInUp 1.5s ease forwards;
+    opacity: 0;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    line-height: 1.4;
+}
+
+/* Специальные стили для портретных фото */
 .slide.portrait {
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-    background-color: #fcb0c5; /* Фон вокруг фото */
+    background-color: rgba(252, 176, 197, 0.8); /* Розовый фон */
 }
 
 .slide.portrait .text {
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     width: 90%;
-    left: 5%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
     background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    padding: 15px;
-    border-radius: 15px;
-    animation: fadeInUp 1s ease-out;
 }
 
-/* Остальные существующие стили остаются без изменений */
+/* Анимация */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
